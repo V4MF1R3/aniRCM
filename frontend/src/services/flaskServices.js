@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const Base_URL = 'http://localhost:5000';
+const BASE_URL = 'http://localhost:5000';
 
 export const fetchRecommendations = async (mal_id) => {
     try {

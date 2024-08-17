@@ -1,0 +1,19 @@
+.custom-navbar {
+    background-color: rgba(0, 0, 0, 0.7); /* White with 80% opacity */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for contrast */
+    backdrop-filter: blur(10px); /* Optional blur effect */
+}
+
+.brand-image {
+    height: 30px; /* Adjust the height of the brand image */
+}
+
+
+.search-input {
+    width: 500px; /* Adjust width of the search input */
+    height: 40px;  /* Adjust height of the search input */
+}
+
+.main-content {
+    margin-top: 80px; /* Adjust the margin to avoid content overlap */
+}
