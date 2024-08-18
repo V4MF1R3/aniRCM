@@ -83,7 +83,7 @@ function Home() {
                                     <p className="description">{anime.synopsis}</p>
                                     <div className="div-buttons">
                                         <a href={`https://www.youtube.com/watch?v=${anime.youtube_id}`} className="btn w-icon btn-watch" target="_blank" rel="noopener noreferrer">
-                                            <i className="fas fa-play mr-3"></i> Watch now
+                                            <i className="fa fa-info-circle"></i> More Details
                                         </a>
                                     </div>
                                 </div>
