@@ -1,17 +1,37 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { getCurrentSeasonAnime } from '../services/jikanService';
+import { getCurrentSeasonAnime, getTopAnime } from '../services/jikanService'; // Import the functions
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 import './Home.css';
+import { Navigation, Scrollbar } from 'swiper/modules';
+
 
 function Home() {
+    const [airingAnime, setAiringAnime] = useState([]);
+    const [popularAnime, setPopularAnime] = useState([]);
+    const [favoriteAnime, setFavoriteAnime] = useState([]);
     const [animeList, setAnimeList] = useState([]);
     const videoRefs = useRef([]);
 
+
     useEffect(() => {
         const fetchAnime = async () => {
-            const data = await getCurrentSeasonAnime();
-            setAnimeList(data);
+            const currentSeason = await getCurrentSeasonAnime();
+            setAnimeList(currentSeason);
+
+            const airing = await getTopAnime({ filter: 'airing' });
+            setAiringAnime(airing);
+
+            const popular = await getTopAnime({ filter: 'bypopularity' });
+            setPopularAnime(popular);
+
+            const favorite = await getTopAnime({ filter: 'favorite' });
+            setFavoriteAnime(favorite);
         };
 
         fetchAnime();
@@ -26,15 +46,22 @@ function Home() {
         });
     };
 
+    const modifyEmbedUrl = (url) => {
+        const urlObj = new URL(url);
+        urlObj.searchParams.set('autoplay', '0'); // Turn off autoplay
+        return urlObj.toString();
+    };
+
     return (
         <div className="container">
+            {/* Carousel Component */}
             <Carousel onSlide={handleSlide}>
                 {animeList.map((anime, index) => (
                     <Carousel.Item key={anime.mal_id} className="slide-element">
                         <div className="video-container">
                             <iframe
                                 title={anime.title}
-                                src={anime.trailer.embed_url}
+                                src={modifyEmbedUrl(anime.trailer.embed_url)}
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen
@@ -68,6 +95,60 @@ function Home() {
                     </Carousel.Item>
                 ))}
             </Carousel>
+
+            {/* Swipers for Airing, Popular, and Favorite Anime */}
+            <div className="swiper-container">
+                <h2 className="heading-xl heading-xl-left mt-4 mb-4 text-white">Top 10 Airing Anime</h2>
+                <Swiper
+                    spaceBetween={10}
+                    slidesPerView={5}
+                    freeMode={true}
+                    navigation={true} // Enable navigation
+                    scrollbar={{ draggable: true }} // Enable scrollbar
+                    modules={[Navigation, Scrollbar]}
+                >
+                    {airingAnime.map(anime => (
+                        <SwiperSlide key={anime.mal_id}>
+                            <img src={anime.images.webp.large_image_url} alt={anime.title} />
+                            <p>{anime.title_english || anime.title}</p>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                <h2 className="heading-xl heading-xl-left mt-4 mb-4 text-white">Top 10 Popular Anime</h2>
+                <Swiper
+                    spaceBetween={10}
+                    slidesPerView={5}
+                    freeMode={true}
+                    navigation={true} // Enable navigation
+                    scrollbar={{ draggable: true }} // Enable scrollbar
+                    modules={[Navigation, Scrollbar]}
+                >
+                    {popularAnime.map(anime => (
+                        <SwiperSlide key={anime.mal_id}>
+                            <img src={anime.images.webp.large_image_url} alt={anime.title} />
+                            <p className='aniName'>{anime.title_english || anime.title}</p>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                <h2 className="heading-xl heading-xl-left mt-4 mb-4 text-white">Top 10 Favorite Anime</h2>
+                <Swiper
+                    spaceBetween={10}
+                    slidesPerView={5}
+                    freeMode={true}
+                    navigation={true} // Enable navigation
+                    scrollbar={{ draggable: true }} // Enable scrollbar
+                    modules={[Navigation, Scrollbar]}
+                >
+                    {favoriteAnime.map(anime => (
+                        <SwiperSlide key={anime.mal_id}>
+                            <img src={anime.images.webp.large_image_url} alt={anime.title} />
+                            <p>{anime.title_english || anime.title}</p>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
         </div>
     );
 }

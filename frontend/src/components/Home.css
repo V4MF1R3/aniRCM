@@ -1,3 +1,5 @@
+/* Home.css */
+
 .container {
     position: relative;
     max-width: 100%;
@@ -15,7 +17,7 @@
     position: relative;
     width: 90%; /* Adjust width as needed */
     padding-top: 56.25%;
-    background: #000; /* Black background for video container */
+    background: #201f31; /* Black background for video container */
     margin: auto; /* Center horizontally */
 }
 
@@ -24,7 +26,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 60%;
+    height: 70%;
 }
 
 .slide-element {
@@ -33,9 +35,6 @@
 }
 
 .is-caption {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 20px;
@@ -45,14 +44,12 @@
 
 .caption-content {
     display: flex;
-    width: 100%;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .text-content {
     flex: 1;
-    max-width: 70%; /* Adjust width as needed */
 }
 
 .heading-xl {
@@ -65,9 +62,14 @@
     text-decoration: none;
 }
 
+.film-info {
+    margin-top: 5px;
+}
+
 .description {
     margin-top: 10px;
     font-size: 0.875rem;
+    text-align: left;
 }
 
 .div-buttons {
@@ -87,16 +89,81 @@
 }
 
 .image-content {
-    flex: 0 0 auto;
-    max-width: 30%; /* Adjust width as needed */
+    margin-left: 20px;
 }
 
 .anime-image {
-    width: 100%;
+    max-width: 150px;
     border-radius: 5px;
-    object-fit: cover;
 }
 
-.description {
-    text-align: left;
+.swiper-container {
+    margin: 20px 0;
 }
+
+.swiper-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.swiper-container .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.swiper-container .swiper-slide img {
+    width: auto;
+    height: 55vh;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.swiper-container .swiper-slide p {width: 200px;
+    height: auto;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.swiper-slide {
+    /* background-color: rgb(255, 255, 255); */
+    color: #ffffff;
+}
+
+.heading-xl {
+    font-size: 2rem; /* Example font size */
+    color: white; /* Set text color to white */
+}
+
+.heading-xl-left {
+    margin-left: 20px; /* Adjust the value as needed */
+}
+
+.swiper-container {
+    margin-top: 20px; /* Increase this value to create more space */
+}
+
+.swiper-scrollbar {
+    height: 10px; /* Adjust height of the scrollbar */
+    border-radius: 5px; /* Round the corners */
+}
+
+.swiper-scrollbar-drag {
+    background: rgb(255, 255, 255); /* Set the color of the scrollbar handle */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: white; /* Set the initial color of the navigation buttons */
+    
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: #007bff; /* Change text color on hover */
+}
+

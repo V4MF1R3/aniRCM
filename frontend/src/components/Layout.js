@@ -24,7 +24,7 @@ function Layout() {
     return (
         <>
             <header>
-                <nav className="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+                <nav className="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
                     <div className="container-fluid">
                         <Link className="navbar-brand" to='/'>
                             <img src={brand} className="img-fluid brand-image" alt="Brand" />
