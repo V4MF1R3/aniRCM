@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { getCurrentSeasonAnime, getTopAnime } from '../services/jikanService'; // Import the functions
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -24,13 +24,13 @@ function Home() {
             const currentSeason = await getCurrentSeasonAnime();
             setAnimeList(currentSeason);
 
-            const airing = await getTopAnime({ filter: 'airing' });
+            const airing = await getTopAnime({ filter: 'airing', limit: 10});
             setAiringAnime(airing);
 
-            const popular = await getTopAnime({ filter: 'bypopularity' });
+            const popular = await getTopAnime({ filter: 'bypopularity', limit: 10});
             setPopularAnime(popular);
 
-            const favorite = await getTopAnime({ filter: 'favorite' });
+            const favorite = await getTopAnime({ filter: 'favorite', limit: 10});
             setFavoriteAnime(favorite);
         };
 

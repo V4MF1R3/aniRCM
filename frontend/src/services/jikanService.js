@@ -40,8 +40,8 @@ export const getTopAnime = async ({
     filter,
     rating,
     sfw = true,
-    page = 1,
-    limit = 10
+    page,
+    limit
 } = {}) => {
     try {
         const params = {
@@ -50,7 +50,7 @@ export const getTopAnime = async ({
             rating,
             sfw,
             page,
-            limit
+            limit : 20
         };
         const response = await axiosInstance.get('/top/anime', { params });
         return response.data.data.slice(0, limit);

@@ -35,16 +35,16 @@ function Layout() {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav me-auto">
                                 <li className="nav-item">
-                                    <Link className="nav-link" to='#'>Most Popular</Link>
+                                    <Link className="nav-link" to='/anime?filter=bypopularity'>Most Popular</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to='#'>Top Airing</Link>
+                                    <Link className="nav-link" to='/anime?filter=airing'>Top Airing</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to='#'>Movies</Link>
+                                    <Link className="nav-link" to='/anime?type=movie'>Movies</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to='#'>TV Series</Link>
+                                    <Link className="nav-link" to='/anime?type=tv'>TV Series</Link>
                                 </li>
                             </ul>
                             <form className="d-flex search-form" onSubmit={handleSearch}>
