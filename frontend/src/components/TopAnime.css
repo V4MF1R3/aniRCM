@@ -1,0 +1,32 @@
+.card-bg {
+    background-color: rgba(0, 0, 0, 0.7); /* Card background color */
+}
+
+.card {
+    position: relative;
+    overflow: hidden; /* Ensures overlay doesn't spill outside the card */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.more-details {
+    font-size: 1.5rem; /* Adjust font size as needed */
+}

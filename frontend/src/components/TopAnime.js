@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { getTopAnime } from "../services/jikanService";
+import './TopAnime.css';
 
 function TopAnime() {
     const [searchParams] = useSearchParams();
@@ -33,30 +34,29 @@ function TopAnime() {
 
     return (
         <>
-            <h1 className="text-center mb-4">{getHeading()}</h1>
+            <h1 className="ms-4 mb-4 text-white">{getHeading()}</h1>
             <div className="container">
                 <div className="row">
                     {topAnime.map(anime => (
                         <div key={anime.mal_id} className="col-md-3 mb-5">
-                            <div className="card h-100">
-                                <img className="card-img-top" src={anime.images.jpg.image_url} alt={anime.title} />
-                                <div className="card-body">
-                                    <h5 className="card-title">{anime.title}</h5>
-                                    <p className="card-text">
-                                        {anime.synopsis
-                                            ? anime.synopsis.substring(0, 100) + "..."
-                                            : "No description available."}
-                                    </p>
-                                    <a
-                                        href={anime.url}
-                                        className="btn btn-primary"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        View Details
-                                    </a>
+                                <div className="card h-100 card-bg position-relative text-white">
+                                    <img className="card-img-top" src={anime.images.jpg.image_url} alt={anime.title} />
+                                    <div className="card-body d-flex flex-column">
+                                        <div className="mt-auto">
+                                            <h5 className="card-title">{anime.title}</h5>
+                                            <p className="card-text">
+                                                {anime.synopsis
+                                                    ? anime.synopsis.substring(0, 100) + "..."
+                                                    : "No description available."}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <Link to={`/results/${anime.mal_id}`}>
+                                        <div className="overlay d-flex align-items-center justify-content-center">
+                                            <span className="more-details">More Details</span>
+                                        </div>
+                                    </Link>
                                 </div>
-                            </div>
                         </div>
                     ))}
                 </div>
