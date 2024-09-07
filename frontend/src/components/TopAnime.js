@@ -46,7 +46,7 @@ function TopAnime() {
                                             <h5 className="card-title">{anime.title}</h5>
                                             <p className="card-text">
                                                 {anime.synopsis
-                                                    ? anime.synopsis.substring(0, 100) + "..."
+                                                    ? anime.synopsis.substring(0, 120) + "..."
                                                     : "No description available."}
                                             </p>
                                         </div>

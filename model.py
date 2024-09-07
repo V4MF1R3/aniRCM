@@ -35,6 +35,6 @@ def get_similarity(mal_id, cosine_sim=cosine_sim):
     sim_scores = cosine_sim[idx].flatten()
     sim_scores = [(int(df1['mal_id'].iloc[i]), score) for i, score in enumerate(sim_scores)]
     sim_scores_sorted = adjust_similarity_with_votes(sim_scores, mal_id, df2)
-    sim_scores_top10 = [item for item in sim_scores_sorted if item[0] != mal_id][:10]
+    sim_scores_top10 = [item for item in sim_scores_sorted if item[0] != mal_id][:12]
     similar_movies = {str(mal_id): score for mal_id, score in sim_scores_top10}
     return similar_movies

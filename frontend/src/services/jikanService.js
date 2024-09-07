@@ -28,7 +28,7 @@ axiosInstance.interceptors.response.use(null, async (error) => {
 export const getAnimeDetails = async (mal_id) => {
     try {
         const response = await axiosInstance.get(`/anime/${mal_id}`);
-        return response.data;
+        return response.data.data;
     } catch (error) {
         console.error('Error fetching anime details:', error);
         return null;
