@@ -167,3 +167,16 @@
     color: #007bff; /* Change text color on hover */
 }
 
+.anime-link {
+    text-decoration: none; /* Remove underline from the link */
+    display: flex;
+    flex-direction: column; /* Stack the image and text vertically */
+    align-items: center; /* Center the text and image */
+    color: inherit; /* Keep the default text color */
+}
+
+.aniName {
+    margin-top: 8px; /* Add space between the image and text */
+    font-size: 1rem; /* Adjust font size */
+    text-align: center; /* Center align the text */
+}

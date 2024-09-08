@@ -77,7 +77,7 @@ function Results() {
                 <div className="p-4 col-md-7 d-flex align-items-center transparent-black-bg">
                     <div>
                         <h2>{animeDetails.title}</h2>
-                        <p><strong>Score:</strong> {animeDetails.score}</p>
+                        <p><strong>Score:</strong> {animeDetails.score} <i class="fa-solid fa-star text-warning"></i></p>
                         <p><strong>Status:</strong> {animeDetails.status}</p>
                         <p><strong>Episodes:</strong> {animeDetails.episodes}</p>
                         <p>{animeDetails.synopsis}</p>
@@ -87,21 +87,21 @@ function Results() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            View on MyAnimeList
+                            View on MyAnimeList.com
                         </a>
                     </div>
                 </div>
             </div>
 
             {animeDetails.trailer?.embed_url && (
-                <div className="mx-auto m-4 justify-content-center video-container">
+                <div className="mx-auto m-4 justify-content-center video-container-result">
                     <iframe
                         title={animeDetails.title}
                         src={modifyEmbedUrl(animeDetails.trailer.embed_url)}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
-                        className="video-frame"
+                        className="video-frame-result"
                     ></iframe>
                 </div>
             )}

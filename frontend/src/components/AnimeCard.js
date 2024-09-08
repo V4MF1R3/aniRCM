@@ -20,7 +20,7 @@ function AnimeCard({ anime }) {
                 </div>
                 <Link to={`/results/${anime.mal_id}`}>
                     <div className="overlay d-flex align-items-center justify-content-center">
-                        <span className="more-details">More Details</span>
+                        <span className="more-details"><i class="fa-solid fa-star fs-1 text-warning"></i> {anime.score}<br/><i className="fa fa-info-circle"></i> More Details</span>
                     </div>
                 </Link>
             </div>

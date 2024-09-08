@@ -1,3 +1,20 @@
 .transparent-black-bg {
     background-color: rgba(0, 0, 0, 0.7); /* Card background color */
 }
+
+.video-container-result {
+    position: relative;
+    width: 80%; /* Adjust the width to make the container smaller */
+    padding-bottom: 40%;
+    background: #000;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.video-frame-result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,6 +10,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './Home.css';
 import { Navigation, Scrollbar } from 'swiper/modules';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 function Home() {
@@ -82,9 +84,9 @@ function Home() {
                                     </div>
                                     <p className="description">{anime.synopsis}</p>
                                     <div className="div-buttons">
-                                        <a href={`https://www.youtube.com/watch?v=${anime.youtube_id}`} className="btn w-icon btn-watch" target="_blank" rel="noopener noreferrer">
+                                        <Link className="btn w-icon btn-watch" to={`/results/${anime.mal_id}`}>
                                             <i className="fa fa-info-circle"></i> More Details
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="image-content">
@@ -109,8 +111,10 @@ function Home() {
                 >
                     {airingAnime.map(anime => (
                         <SwiperSlide key={anime.mal_id}>
-                            <img src={anime.images.webp.large_image_url} alt={anime.title} />
-                            <p>{anime.title_english || anime.title}</p>
+                            <Link to={`/results/${anime.mal_id}`} className="anime-link">
+                                <img src={anime.images.webp.large_image_url} alt={anime.title} />
+                                <p className='aniName'>{anime.title_english || anime.title}</p>
+                            </Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -126,8 +130,10 @@ function Home() {
                 >
                     {popularAnime.map(anime => (
                         <SwiperSlide key={anime.mal_id}>
-                            <img src={anime.images.webp.large_image_url} alt={anime.title} />
-                            <p className='aniName'>{anime.title_english || anime.title}</p>
+                            <Link to={`/results/${anime.mal_id}`} className="anime-link">
+                                <img src={anime.images.webp.large_image_url} alt={anime.title} />
+                                <p className='aniName'>{anime.title_english || anime.title}</p>
+                            </Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -143,8 +149,10 @@ function Home() {
                 >
                     {favoriteAnime.map(anime => (
                         <SwiperSlide key={anime.mal_id}>
-                            <img src={anime.images.webp.large_image_url} alt={anime.title} />
-                            <p>{anime.title_english || anime.title}</p>
+                            <Link to={`/results/${anime.mal_id}`} className="anime-link">
+                                <img src={anime.images.webp.large_image_url} alt={anime.title} />
+                                <p className='aniName'>{anime.title_english || anime.title}</p>
+                            </Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>

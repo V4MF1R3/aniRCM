@@ -3,6 +3,7 @@ import { Outlet, Link, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import brand from '../brand.png';
 import './Layout.css';  // Import custom CSS
+import profilePic from '../logo.webp';
 import axios from 'axios';
 
 function Layout() {
@@ -105,6 +106,42 @@ function Layout() {
             <main className="main-content">
                 <Outlet />
             </main>
+
+            {/* Footer Section */}
+            <footer className="footer text-white py-4 px-4">
+                <div className="container">
+                    <div className="row">
+                        {/* Left Section - Your Photo and Name */}
+                        <div className="col-md-4 d-flex align-items-center">
+                            <Link className="text-white text-decoration-none d-flex align-items-center profile-link" to="/">
+                                <img src={profilePic} alt="Your Name" className="rounded-circle me-3" style={{ width: '80px', height: '80px' }} />
+                                <div>
+                                    <h5>Vaibhav Pant AKA VAMFIRE</h5>
+                                    <p>Full-Stack And AIML Enthusiast</p>
+                                </div>
+                            </Link>
+                        </div>
+
+                        {/* Right Section - Page Links */}
+                        <div className="col-md-8 d-flex justify-content-end">
+                            <ul className="list-unstyled">
+                                <li>
+                                    <Link className="text-white" to='/anime?filter=bypopularity'>Most Popular</Link>
+                                </li>
+                                <li>
+                                    <Link className="text-white" to='/anime?filter=airing'>Top Airing</Link>
+                                </li>
+                                <li>
+                                    <Link className="text-white" to='/anime?type=movie'>Movies</Link>
+                                </li>
+                                <li>
+                                    <Link className="text-white" to='/anime?type=tv'>TV Series</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </>
     )
 }
