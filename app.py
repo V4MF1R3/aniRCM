@@ -25,7 +25,6 @@ def serve_react(path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
-
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0')
