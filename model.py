@@ -31,10 +31,19 @@ def adjust_similarity_with_votes(sim_scores, mal_id, df2):
 def get_similarity(mal_id, cosine_sim=cosine_sim):
     if mal_id not in indices:
         return f"mal_id {mal_id} not found in the dataset"
+    
+    # Find the index of the anime in the cosine similarity matrix
     idx = indices[mal_id]
+    
+    # Get similarity scores for all animes with the selected one
     sim_scores = cosine_sim[idx].flatten()
     sim_scores = [(int(df1['mal_id'].iloc[i]), score) for i, score in enumerate(sim_scores)]
+    
+    # Adjust similarity scores based on votes
     sim_scores_sorted = adjust_similarity_with_votes(sim_scores, mal_id, df2)
-    sim_scores_top10 = [item for item in sim_scores_sorted if item[0] != mal_id][:12]
-    similar_movies = {str(mal_id): score for mal_id, score in sim_scores_top10}
-    return similar_movies
+    
+    # Get the top 12 recommendations excluding the original anime (mal_id)
+    sim_scores_top12 = [item[0] for item in sim_scores_sorted if item[0] != mal_id][:12]
+    
+    # Return only the mal_id of the top 12 recommended animes
+    return sim_scores_top12
