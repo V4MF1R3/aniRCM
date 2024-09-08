@@ -4,8 +4,8 @@ import pickle
 from sklearn.metrics.pairwise import linear_kernel
 
 # Load precomputed data
-with open('data/tfidf_vectorizer.pkl', 'rb') as f:
-    tfidf = pickle.load(f)
+# with open('data/tfidf_vectorizer.pkl', 'rb') as f:
+#     tfidf = pickle.load(f)
 with open('data/cosine_sim.pkl', 'rb') as f:
     cosine_sim = pickle.load(f)
 with open('data/indices.pkl', 'rb') as f:

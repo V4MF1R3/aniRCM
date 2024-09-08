@@ -1,9 +1,10 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from model import get_similarity
+import os
 
 # Initialize Flask app
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./frontend/build')
 CORS(app)
 
 # Define the recommendation endpoint
@@ -14,6 +15,16 @@ def recommend():
         return jsonify({"error": "mal_id parameter is required"}), 400
     result = get_similarity(mal_id)
     return jsonify(result)
+
+# Serve React frontend
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_react(path):
+    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
+
 
 # Run the app
 if __name__ == '__main__':

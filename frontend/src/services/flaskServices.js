@@ -1,11 +1,9 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000';
-
 export const fetchRecommendations = async (mal_id) => {
     try {
         // Make GET request to the recommendation API with mal_id as a query param
-        const response = await axios.get(`${BASE_URL}/recommend`, {
+        const response = await axios.get(`/recommend`, {
             params: { mal_id: mal_id } // Ensure mal_id is sent in query params
         });
 
