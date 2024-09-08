@@ -25,7 +25,7 @@ def serve_react(path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
-# Run the app
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+# The following block is not needed for Gunicorn deployment
+# if __name__ == '__main__':
+#     port = int(os.environ.get('PORT', 5000))
+#     app.run(host='0.0.0.0', port=port, debug=True)
