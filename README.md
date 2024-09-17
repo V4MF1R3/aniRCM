@@ -82,4 +82,4 @@ AniRCM is an Anime Recommendation System built using Flask (backend) and React (
    The server will be running on [http://localhost:5000](http://localhost:5000) by default. You can interact with it through this URL.
 
 ## Screenshots
-![Homepage Screenshot](assets/homepage.png)
+![Homepage Screenshot](screenshots/home.png)
