@@ -84,10 +84,10 @@ AniRCM is an Anime Recommendation System built using Flask (backend) and React (
 ## Screenshots
 
 ### Home Page
-![Homepage Screenshot](screenshots/home.png)
+![Home page Screenshot](screenshots/home.png)
 
 ### Result Page
-![Homepage Screenshot](screenshots/result.png)
+![Result page Screenshot](screenshots/result.png)
 
 ### Top Anime Page
-![Homepage Screenshot](screenshots/topanime.png)
+![TopAnime page Screenshot](screenshots/topanime.png)
