@@ -27,7 +27,11 @@ AniRCM is an Anime Recommendation System built using Flask (backend) and React (
 * Frontend: React
 * Backend: Flask
 * ML Model: Trained using Python and Jupyter notebook (model.ipynb)
-* Deployment: Heroku (uses Procfile for setup)
+* API: Jikan (Unofficial API of MyAnimeList)
+
+## Dataset
+
+[Anime Data from 1970 to 2024]('https://www.kaggle.com/datasets/vaipant/anime-data-from-1970-to-2024')
 
 ## How to Run
 
