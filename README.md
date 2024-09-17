@@ -31,7 +31,7 @@ AniRCM is an Anime Recommendation System built using Flask (backend) and React (
 
 ## Dataset
 
-[Anime Data from 1970 to 2024]('https://www.kaggle.com/datasets/vaipant/anime-data-from-1970-to-2024')
+[Anime Data from 1970 to 2024](https://www.kaggle.com/datasets/vaipant/anime-data-from-1970-to-2024)
 
 ## Formula for Recommendation
 
