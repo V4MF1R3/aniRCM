@@ -5,10 +5,6 @@ AniRCM is an Anime Recommendation System built using Flask (backend) and React (
 ## Directory Structure
 
 ```bash
-├── .git/
-├── .venv/
-├── .vscode/
-├── __pycache__/
 ├── data/            # Dataset for training the model
 ├── frontend/        # React frontend app
 ├── app.py           # Flask app entry point
@@ -57,6 +53,11 @@ AniRCM is an Anime Recommendation System built using Flask (backend) and React (
 **Note:** The React build is integrated into the Flask app, and the static files are served from the build folder.
 
 ### Backend (Flask)
+1. **Navigate back to the root Directory:**
+   Change to the frontend directory where the Flask app is located:
+   ```bash
+   cd ..
+   ```
 
 1. **Install Python and Virtual Environment:**
    Ensure you have Python installed. It’s recommended to use a virtual environment to manage dependencies. If you haven’t already, create and activate a virtual environment:
@@ -80,4 +81,5 @@ AniRCM is an Anime Recommendation System built using Flask (backend) and React (
 3. **Access the website:**
    The server will be running on [http://localhost:5000](http://localhost:5000) by default. You can interact with it through this URL.
 
-
+## Screenshots
+![Homepage Screenshot](assets/homepage.png)
