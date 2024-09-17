@@ -41,13 +41,17 @@ AniRCM is an Anime Recommendation System built using Flask (backend) and React (
 Where:
 
 *  Cosine Similarity(i) is the initial similarity score between the item 𝑖 i and the target item, computed using the cosine similarity formula:
+   
    ![Cosine Similarity](screenshots/cs.png)
 ​
 *  Vote Adjustment(i) is the adjustment based on the votes from the recommendation dataset, computed as:
+   
    ![Vote Adjustment](screenshots/va.png)
+
 where V(i) is the number of votes for the recommended item 𝑖 i from the dataset.
 
 In essence, the final adjusted score is:
+
 ![Final Score](screenshots/fs.png)
 
 This formula combines the initial cosine similarity score with the votes from the recommendation dataset to prioritize items with higher votes.
